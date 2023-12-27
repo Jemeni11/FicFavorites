@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Ubuntu, Arial, sans-serif;
+}
+
+#app {
+  min-width: 320px;
+  min-height: 400px;
+  padding: 2rem 4rem;
+  text-align: center;
+}
+
+#app > p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  width: max-content;
+}
+
+li > p {
+  font-size: 1.3rem;
+}
+
+li:hover {
+  cursor: pointer;
+  box-shadow: 0 20px 25px -5px rgba(9, 7, 129, 0.1),
+    0 8px 10px -6px rgba(9, 7, 129, 0.1);
+  transform: scale(1.1);
+}
