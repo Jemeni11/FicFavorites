@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "FicFavorites",
+  "description": "FicFavorites is a browser extension that helps you create a list of your favorite fanfiction stories.",
+  "version": "1.0.0",
+  "action": { "default_popup": "index.html" },
+  "host_permissions": [
+    "https://www.fanfiction.net/",
+    "https://m.fanfiction.net/",
+    "https://archiveofourown.org/",
+    "https://forum.questionablequesting.com/"
+  ]
+}
