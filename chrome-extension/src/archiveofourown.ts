@@ -1,15 +1,49 @@
+type workObjectType = {
+  id: string;
+  title: string;
+  link: string;
+  authorName: string[];
+  authorLink: string[];
+};
+
+type authorType = {
+  name: string;
+  link: string;
+};
+
+function cleanArray(array: (workObjectType | authorType)[]) {
+  // Use a Map to keep track of unique names
+  const uniqueNamesMap = new Map();
+
+  // Filter the array based on unique names
+  const uniqueArray = array.filter((obj) => {
+    // Check if the name is already in the Map
+    if (uniqueNamesMap.has(obj.link)) {
+      return false; // Duplicate found, exclude from the result
+    }
+
+    // Add the name to the Map to mark it as seen
+    uniqueNamesMap.set(obj.link, true);
+    return true; // Include in the result
+  });
+
+  return uniqueArray;
+}
+
 async function getArchiveOfOurOwnData(username: string) {
   let ao3SubscriptionURL = `https://archiveofourown.org/users/${username}/subscriptions`;
-  const authors = [];
-  const works = [];
-  const series = [];
+  const createAO3SubscriptionURL = (pageNumber: string) =>
+    `https://archiveofourown.org/users/${username}/subscriptions?page=${pageNumber}`;
+  const authors: authorType[] = [];
+  const works: workObjectType[] = [];
+  const series: workObjectType[] = [];
   let numberOfPages = 1;
   let i = 1;
 
   do {
     try {
       if (i > 1) {
-        ao3SubscriptionURL = ao3SubscriptionURL + `?page=${i}`;
+        ao3SubscriptionURL = createAO3SubscriptionURL(i.toString());
       }
       const response = await fetch(ao3SubscriptionURL, {
         mode: "cors",
@@ -68,7 +102,7 @@ async function getArchiveOfOurOwnData(username: string) {
             }
           } else {
             authors.push({
-              name: link.textContent,
+              name: link.textContent!.trim(),
               link: "https://archiveofourown.org" + link.pathname,
             });
           }
@@ -121,11 +155,17 @@ async function getArchiveOfOurOwnData(username: string) {
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      i++;
     }
-    i++;
   } while (i <= numberOfPages);
 
-  return { authors, works, series };
+  // Remove duplicates from the arrays
+  const authorsClean = cleanArray(authors);
+  const worksClean = cleanArray(works);
+  const seriesClean = cleanArray(series);
+
+  return { authorsClean, worksClean, seriesClean };
 }
 
 export default getArchiveOfOurOwnData;
