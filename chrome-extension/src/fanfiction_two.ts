@@ -33,8 +33,11 @@ function processStoryData(data: FanFictionData): ProcessedStoryData {
   const storyTitle = storyData.storyTitle;
 
   // Modify dateCreated and dateUpdated as needed
-  const modifiedDateCreated = `${dateCreated}`.substring(2);
-  const modifiedDateUpdated = `${dateUpdated}`.substring(1);
+  // Convert the date to a reasonable format: yyyy-mm-dd instead of mm-dd-yyyy
+  const dateCreatedArray = `${dateCreated}`.substring(2).split("-");
+  const dateUpdatedArray = `${dateUpdated}`.substring(1).split("-");
+  const modifiedDateCreated = `${dateCreatedArray[2]}-${dateCreatedArray[0]}-${dateCreatedArray[1]}`;
+  const modifiedDateUpdated = `${dateUpdatedArray[2]}-${dateUpdatedArray[0]}-${dateUpdatedArray[1]}`;
 
   return {
     authorLink,
