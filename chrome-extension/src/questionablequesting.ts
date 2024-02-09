@@ -18,7 +18,9 @@ async function getQuestionableQuestingData() {
   const liContentArray: HTMLDivElement[] = Array.from(
     threadsList.children,
     (list) => list.children[1]
-  );
+  ) as unknown as HTMLDivElement[];
+
+  console.log(liContentArray);
 }
 
 export default getQuestionableQuestingData;
