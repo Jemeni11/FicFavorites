@@ -17,7 +17,7 @@ body {
 
 #app > p {
   margin: 1rem 0;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 ul {
@@ -29,11 +29,10 @@ li {
   padding: 0.75rem 1.75rem;
   border-radius: 0.5rem;
   transition: all 0.2s ease-in-out;
-  width: max-content;
 }
 
 li > p {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 li:hover {
