@@ -3,9 +3,11 @@ import getFanFictionNetStoryData from "./fanfiction_two";
 import getArchiveOfOurOwnData from "./archiveofourown";
 
 // FanFiction.net
+
 // const fanfictionnetFavoritesURL = "https://www.fanfiction.net/favorites/story.php";
 const fanfictionnetFavoritesURLMobile =
   "https://m.fanfiction.net/m/f_story.php";
+
 // const fanfictionnetFollowingURL = "https://www.fanfiction.net/alert/story.php";
 const fanfictionnetFollowingURLMobile =
   "https://m.fanfiction.net/m/a_story.php";
