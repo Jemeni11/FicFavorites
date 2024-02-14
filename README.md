@@ -6,13 +6,6 @@ FicFavorites is a browser extension that helps you create a list of your favorit
 
 ## Supported Sites
 
-- XenForo Sites
-  - SpaceBattles
-    - Following Threads
-  - SufficientVelocity
-    - Following Threads
-  - QuestionableQuesting
-    - Following Threads
 - FanFiction.net
   - Favorites
   - Following
@@ -20,3 +13,10 @@ FicFavorites is a browser extension that helps you create a list of your favorit
   - Work Subscriptions
   - Series Subscriptions
   - Author Subscriptions
+
+## Sites Planned for Support
+
+- SpaceBattles
+  - Following Threads
+- QuestionableQuesting
+  - Following Threads
